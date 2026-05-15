@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Currículo – Endrew Renan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --ink2: #3a3a5c;
+    --muted: #7a7a9a;
+    --accent: #e8632a;
+    --accent2: #f0a500;
+    --bg: #f7f6f2;
+    --white: #ffffff;
+    --rule: #d8d6ce;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; border-radius: 0; }
+    .dl-btn { display: none; }
+  }
+
+  .dl-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--accent);
+    color: white;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(232,99,42,0.35);
+    z-index: 100;
+    transition: background 0.15s;
+  }
+  .dl-btn:hover { background: #d0521c; }
+  .dl-btn svg { width: 16px; height: 16px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  body {
+    background: #e8e6e0;
+    font-family: var(--sans);
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .page {
+    background: var(--white);
+    width: 100%;
+    max-width: 780px;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--ink);
+    color: var(--white);
+    padding: 48px 52px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.12;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: var(--accent2);
+    opacity: 0.08;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .name {
+    font-family: var(--serif);
+    font-size: 42px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--white);
+  }
+
+  .name span {
+    color: var(--accent);
+  }
+
+  .title-tag {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-top: 8px;
+  }
+
+  .contact-block {
+    text-align: right;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 2;
+  }
+
+  .contact-block .fill {
+    color: rgba(255,255,255,0.35);
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  .badge.accent { background: var(--accent); border-color: var(--accent); color: white; }
+  .badge.gold { background: var(--accent2); border-color: var(--accent2); color: var(--ink); }
+
+  /* BODY */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 0;
+  }
+
+  .main { padding: 44px 52px; border-right: 1px solid var(--rule); }
+  .side { padding: 44px 32px; background: var(--bg); }
+
+  /* SECTION */
+  .section { margin-bottom: 36px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* EXPERIENCE */
+  .job { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .job-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; }
+
+  .job-title { font-family: var(--serif); font-size: 17px; color: var(--ink); }
+
+  .job-period {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    white-space: nowrap;
+    padding-top: 3px;
+  }
+
+  .job-company { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+
+  .job-desc { font-size: 13px; color: var(--ink2); line-height: 1.7; font-weight: 300; }
+
+  /* SIDE SECTIONS */
+  .side-section { margin-bottom: 30px; }
+  .side-section:last-child { margin-bottom: 0; }
+
+  .side-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skill-item { margin-bottom: 10px; }
+
+  .skill-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .skill-level { font-size: 10px; color: var(--muted); font-weight: 300; }
+
+  .skill-bar {
+    height: 3px;
+    background: var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink2);
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  .info-line {
+    font-size: 12px;
+    color: var(--ink2);
+    font-weight: 300;
+    line-height: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .profile-text {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .ia-highlight {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%);
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin-top: 12px;
+  }
+
+  .ia-highlight .ia-title {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .ia-highlight .ia-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+</style>
+</head>
+<body>
+<a class="dl-btn" href="#" onclick="window.print(); return false;">
+  <svg viewBox="0 0 24 24"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+  Baixar PDF
+</a>
+<div class="page">
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="name">Endrew <span>Renan</span></div>
+        <div class="title-tag">Técnico em Eletrotécnica · MEI · CNH AB</div>
+      </div>
+      <div class="contact-block">
+        <div>Maringá / PR</div>
+        <div>(44) 99146-9150</div>
+      </div>
+    </div>
+    <div class="badges">
+      <div class="badge accent">Instalação Elétrica</div>
+      <div class="badge gold">Inteligência Artificial</div>
+      <div class="badge">Impressão 3D</div>
+      <div class="badge">Inglês Técnico</div>
+      <div class="badge">Sistemas de Bateria</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="main">
+
+      <div class="section">
+        <div class="section-label">Perfil</div>
+        <p class="profile-text">
+          Profissional técnico disciplinado, com formação em Eletrotécnica e sólida base em Engenharia Elétrica e Civil. Combina habilidades práticas em instalações elétricas com forte afinidade por tecnologia — impressão 3D, montagem de sistemas de bateria, informática e inteligência artificial. Busca crescimento na área de energia renovável, com foco em autonomia técnica e aplicação de ferramentas modernas no dia a dia de trabalho.
+        </p>
+        <div class="ia-highlight">
+          <div class="ia-title">Diferencial — IA no trabalho</div>
+          <div class="ia-text">Utiliza ativamente ChatGPT e Claude para pesquisa técnica, resolução de problemas e automação de tarefas. Nível de interesse máximo em aplicar inteligência artificial no ambiente profissional. Explorando o Antigravit para novos fluxos de trabalho.</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Experiência profissional</div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Operador de Caixa</div>
+            <div class="job-period">nov/2021 – fev/2024</div>
+          </div>
+          <div class="job-company">Casa Borba · CLT</div>
+          <div class="job-desc">Atendimento ao público, operações financeiras e fiscais. Responsabilidade direta sobre o caixa e processos administrativos do ponto de venda. Histórico de assiduidade exemplar — sem faltas mesmo mediante atestado médico.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Auxiliar em Serviços Elétricos Residenciais</div>
+            <div class="job-period">Projetos avulsos</div>
+          </div>
+          <div class="job-company">Atuação autônoma · MEI</div>
+          <div class="job-desc">Participação em reformas residenciais com troca de tomadas, interruptores, plafons e luminárias. Leitura de projetos elétricos, uso de multímetro e alicate amperímetro. Serviços realizados com supervisão técnica.</div>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Projeto Pessoal — Bateria 48V / 20Ah</div>
+            <div class="job-period">Iniciativa própria</div>
+          </div>
+          <div class="job-company">Bike elétrica</div>
+          <div class="job-desc">Montagem completa de sistema de bateria para bicicleta elétrica, envolvendo dimensionamento de tensão e corrente, seleção de células e gestão de segurança do pack. Demonstra raciocínio elétrico prático além do nível residencial.</div>
+        </div>
+
+      </div>
+
+      <div class="section">
+        <div class="section-label">Formação acadêmica</div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Engenharia Elétrica</div>
+            <div class="job-period">2 anos cursados</div>
+          </div>
+          <div class="job-company">Ensino Superior Incompleto</div>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Engenharia Civil</div>
+            <div class="job-period">1 ano cursado</div>
+          </div>
+          <div class="job-company">Ensino Superior Incompleto</div>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Técnico em Eletrotécnica</div>
+            <div class="job-period">2018</div>
+          </div>
+          <div class="job-company">Colégio Graham Bell (atual Colégio Interação Maringá)</div>
+        </div>
+
+        <div class="job">
+          <div class="job-top">
+            <div class="job-title">Ensino Médio Completo</div>
+            <div class="job-period">2018</div>
+          </div>
+          <div class="job-company">Colégio Objetivo</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="side">
+
+      <div class="side-section">
+        <div class="side-label">Habilidades técnicas</div>
+
+        <div class="skill-item">
+          <div class="skill-name">Instalações elétricas <span class="skill-level">Básico</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:40%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Leitura de projetos <span class="skill-level">Básico</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:40%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Multímetro / amperímetro <span class="skill-level">Básico</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Impressão 3D <span class="skill-level">Intermediário</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Informática / hardware <span class="skill-level">Intermediário</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Inteligência Artificial <span class="skill-level">Avançado (uso)</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Idiomas</div>
+        <div class="skill-item">
+          <div class="skill-name">Inglês <span class="skill-level">Leitura e compreensão auditiva</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Português <span class="skill-level">Nativo</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Ferramentas de IA</div>
+        <div class="tag-list">
+          <div class="tag">ChatGPT</div>
+          <div class="tag">Claude</div>
+          <div class="tag">Antigravit</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Outras competências</div>
+        <div class="tag-list">
+          <div class="tag">Impressora K1 Max</div>
+          <div class="tag">Orca Slicer / Bambu Lab</div>
+          <div class="tag">AutoCAD 2018</div>
+          <div class="tag">SketchUp 2020</div>
+          <div class="tag">Peças Shimano</div>
+          <div class="tag">Hardware PC</div>
+          <div class="tag">Sistemas de bateria</div>
+          <div class="tag">Violino</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Informações gerais</div>
+        <div class="info-line"><div class="dot"></div>CNH categoria AB</div>
+        <div class="info-line"><div class="dot"></div>MEI ativo</div>
+        <div class="info-line"><div class="dot"></div>Disponível: CLT ou PJ</div>
+        <div class="info-line"><div class="dot"></div>Não fuma · Não bebe</div>
+        <div class="info-line"><div class="dot"></div>Alta assiduidade comprovada</div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">Objetivo</div>
+        <p style="font-size:12px; color:var(--ink2); line-height:1.7; font-weight:300;">
+          Atuar e crescer como <strong style="font-weight:500; color:var(--ink)">Auxiliar de Instalação Elétrica</strong>, aliando base técnica em eletrotécnica ao uso de ferramentas modernas como AutoCAD, SketchUp e inteligência artificial.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+  <button onclick="window.print()" style="
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    background: #e8632a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 22px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(232,99,42,0.4);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  ">
+    &#8681; Baixar / Imprimir PDF
+  </button>
+
+</body>
+</html>
